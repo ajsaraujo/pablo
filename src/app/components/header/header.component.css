@@ -1,0 +1,45 @@
+button {
+  background-color: transparent;
+  border: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  padding: 8px 10px;
+}
+
+.app-name {
+  color: white;
+  font-weight: 700;
+  font-size: 28px;
+}
+
+.hamburguer-button {
+  margin-right: 5px;
+}
+
+.add-button {
+  background-color: #4caf50;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 0.3em;
+  transition: all 0.2s;
+}
+
+.add-button:hover {
+  background-color: #2d9131;
+}
+
+.vertical-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
