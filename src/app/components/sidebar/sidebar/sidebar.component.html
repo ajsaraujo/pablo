@@ -1,0 +1,8 @@
+<ng-container *ngIf="sidebarService.isVisible">
+  <h1>My Palettes</h1>
+  <ul>
+    <li *ngFor="let palette of paletteService.palettes">
+      {{ palette.name }}
+    </li>
+  </ul>
+</ng-container>
