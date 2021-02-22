@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { SidebarService } from 'src/app/services/sidebar.service';
 
 @Component({
   selector: 'app-header',
@@ -6,5 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  constructor() {}
+  constructor(private sidebarService: SidebarService) {}
+
+  toggleSidebar() {
+    this.sidebarService.toggle();
+  }
+
+  getSidebarIcon(): string {
+    if (this.sidebarService.isVisible) {
+      return 'menu_open';
+    }
+
+    return 'menu';
+  }
 }
