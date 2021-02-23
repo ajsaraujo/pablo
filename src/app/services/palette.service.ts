@@ -6,7 +6,7 @@ import { Palette } from '../models/palette';
   providedIn: 'root',
 })
 export class PaletteService {
-  palettes = [new Palette('Daylight'), new Palette('Nightblue')];
+  palettes = [new Palette('Day Light'), new Palette('Night Blue')];
   activePalette$ = new BehaviorSubject<Palette>(this.palettes[0]);
 
   isActive(palette: Palette): boolean {
@@ -18,7 +18,7 @@ export class PaletteService {
   }
 
   createPalette() {
-    const palette = new Palette('Pinkshade');
+    const palette = new Palette();
 
     this.palettes.push(palette);
 
