@@ -27,7 +27,7 @@ export class SidebarComponent {
   ) {}
 
   changeActivePalette(palette: Palette) {
-    this.paletteService.activePalette = palette;
+    this.paletteService.changeActivePalette(palette);
   }
 
   getListItemClass(palette: Palette) {

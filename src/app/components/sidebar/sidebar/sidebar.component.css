@@ -29,6 +29,7 @@ li:hover {
   padding-top: 20px;
   padding-left: 10px;
   padding-right: 40px;
+  margin-right: 20px;
   -moz-box-shadow: 1px 0 5px 0 rgb(155, 155, 155);
   -webkit-box-shadow: 1px 0 5px 0 rgb(155, 155, 155);
   box-shadow: 1px 0 5px 0 rgb(155, 155, 155);
