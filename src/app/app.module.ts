@@ -8,6 +8,7 @@ import { SidebarComponent } from './components/sidebar/sidebar/sidebar.component
 import { PaletteComponent } from './components/palette/palette.component';
 import { ColorComponent } from './components/color/color.component';
 import { CopyToClipboardDirective } from './directives/copy-to-clipboard.directive';
+import { ToastComponent } from './components/toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { CopyToClipboardDirective } from './directives/copy-to-clipboard.directi
     PaletteComponent,
     ColorComponent,
     CopyToClipboardDirective,
+    ToastComponent,
   ],
   imports: [BrowserModule, BrowserAnimationsModule],
   providers: [],

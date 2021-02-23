@@ -1,2 +1,2 @@
-<div class="color-box" appCopyToClipboard [content]="color.hexCode" [style]="getBackgroundColor()"></div>
+<div class="color-box" appCopyToClipboard [content]="color.hexCode" (copied)="showCopiedMessage()" [style]="getBackgroundColor()"></div>
 <span class="hex-code">{{ color.hexCode }}</span>
