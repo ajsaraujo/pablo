@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { PaletteService } from 'src/app/services/palette.service';
 import { SidebarService } from 'src/app/services/sidebar.service';
+import { Palette } from 'src/app/models/palette';
 
 @Component({
   selector: 'app-sidebar',
@@ -24,4 +25,16 @@ export class SidebarComponent {
     public paletteService: PaletteService,
     public sidebarService: SidebarService
   ) {}
+
+  changeActivePalette(palette: Palette) {
+    this.paletteService.activePalette = palette;
+  }
+
+  getListItemClass(palette: Palette) {
+    if (this.paletteService.isActive(palette)) {
+      return 'active';
+    }
+
+    return '';
+  }
 }

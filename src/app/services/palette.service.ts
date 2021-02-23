@@ -6,4 +6,9 @@ import { Palette } from '../models/palette';
 })
 export class PaletteService {
   palettes = [new Palette('Daylight'), new Palette('Nightblue')];
+  activePalette = this.palettes[0];
+
+  isActive(palette: Palette): boolean {
+    return this.activePalette === palette;
+  }
 }

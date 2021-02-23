@@ -1,7 +1,7 @@
 <div class="container" *ngIf="sidebarService.isVisible" [@slide]>
   <h1>My Palettes</h1>
   <ul>
-    <li *ngFor="let palette of paletteService.palettes">
+    <li *ngFor="let palette of paletteService.palettes" [class]="getListItemClass(palette)" (click)="changeActivePalette(palette)">
       {{ palette.name }}
     </li>
   </ul>

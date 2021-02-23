@@ -14,11 +14,15 @@ li {
   margin-bottom: 5px;
   cursor: pointer;
   font-weight: bold;
-  color: #717171;
+  color: #929292;
 }
 
 li:hover {
   color: #4caf50;
+}
+
+.active {
+  color: #212121;
 }
 
 .container {
