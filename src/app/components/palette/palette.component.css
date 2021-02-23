@@ -1,0 +1,12 @@
+.color-grid {
+  list-style: none;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+li {
+  display: inline-block;
+  margin-right: 1em;
+}

@@ -5,10 +5,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar/sidebar.component';
-import { PaletteComponent } from './components/palette/palette/palette.component';
+import { PaletteComponent } from './components/palette/palette.component';
+import { ColorComponent } from './components/color/color.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, SidebarComponent, PaletteComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    SidebarComponent,
+    PaletteComponent,
+    ColorComponent,
+  ],
   imports: [BrowserModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],

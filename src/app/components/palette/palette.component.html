@@ -1,0 +1,6 @@
+<h1>{{ palette.name }}</h1>
+<ul class="color-grid">
+  <li *ngFor="let color of palette.colors">
+    <app-color [color]="color"></app-color>
+  </li>
+</ul>

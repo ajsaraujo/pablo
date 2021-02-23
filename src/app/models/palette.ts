@@ -1,7 +1,20 @@
+import { RandomUtils } from 'src/app/utils/random.utils';
+import { Color } from './color';
+
 export class Palette {
-  constructor(public name?: string) {
+  constructor(public name?: string, public colors?: Color[]) {
     if (!name) {
       this.name = this.generateCoolName();
+    }
+
+    if (!colors) {
+      const colors = [];
+
+      for (let i = 0; i < 5; i++) {
+        colors.push(new Color());
+      }
+
+      this.colors = colors;
     }
   }
 
@@ -38,6 +51,10 @@ export class Palette {
       'Dream',
       'Cute',
       'Fun',
+      'Friendly',
+      'Naive',
+      'Cute',
+      'Interesting',
     ];
 
     const suffixes = [
@@ -51,7 +68,6 @@ export class Palette {
       'Shade',
       'Steel',
       'Bolt',
-      'Claw',
       'Maneuver',
       'Variation',
       'Mood',
@@ -61,11 +77,8 @@ export class Palette {
       'Afternoon',
     ];
 
-    const getRandomItem = (array: string[]) =>
-      array[Math.floor(Math.random() * array.length)];
-
-    const preffix = getRandomItem(preffixes);
-    const suffix = getRandomItem(suffixes);
+    const preffix = RandomUtils.getRandomItem(preffixes);
+    const suffix = RandomUtils.getRandomItem(suffixes);
 
     return preffix + ' ' + suffix;
   }
