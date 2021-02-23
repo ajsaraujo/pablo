@@ -1,0 +1,32 @@
+h1 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  display: table;
+}
+
+ul {
+  display: inline-block;
+  list-style-type: none;
+}
+
+li {
+  padding: 7px 0px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #717171;
+}
+
+li:hover {
+  color: #4caf50;
+}
+
+.container {
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 40px;
+  -moz-box-shadow: 1px 0 5px 0 rgb(155, 155, 155);
+  -webkit-box-shadow: 1px 0 5px 0 rgb(155, 155, 155);
+  box-shadow: 1px 0 5px 0 rgb(155, 155, 155);
+  display: inline-block;
+}

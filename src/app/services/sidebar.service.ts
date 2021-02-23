@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class SidebarService {
-  isVisible = false;
+  isVisible = true;
 
   toggle() {
     this.isVisible = !this.isVisible;
