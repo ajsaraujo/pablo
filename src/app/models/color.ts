@@ -1,7 +1,7 @@
 import { RandomUtils } from '../utils/random.utils';
 
 export class Color {
-  constructor(public hexCode?: string) {
+  constructor(public hexCode: string = '') {
     if (!this.hexCode) {
       this.hexCode = this.generateRandomHex();
     }

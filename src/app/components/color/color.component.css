@@ -2,6 +2,11 @@
   height: 100px;
   width: 125px;
   margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.color-box:hover {
+  opacity: 0.9;
 }
 
 .hex-code {

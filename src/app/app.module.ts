@@ -7,6 +7,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar/sidebar.component';
 import { PaletteComponent } from './components/palette/palette.component';
 import { ColorComponent } from './components/color/color.component';
+import { CopyToClipboardDirective } from './directives/copy-to-clipboard.directive';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { ColorComponent } from './components/color/color.component';
     SidebarComponent,
     PaletteComponent,
     ColorComponent,
+    CopyToClipboardDirective,
   ],
   imports: [BrowserModule, BrowserAnimationsModule],
   providers: [],
