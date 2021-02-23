@@ -5,7 +5,6 @@ h1 {
 }
 
 ul {
-  display: inline-block;
   list-style-type: none;
 }
 
@@ -19,6 +18,20 @@ li {
 
 li:hover {
   color: #4caf50;
+}
+
+button {
+  margin-top: 10px;
+  border: none;
+  color: #212121;
+  background-color: #dfdfdf;
+  border-radius: 0.25em;
+  padding: 4px 8px;
+}
+
+button:hover {
+  background-color: #4caf50;
+  color: white;
 }
 
 .active {

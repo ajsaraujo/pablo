@@ -7,10 +7,12 @@
 
 button {
   cursor: pointer;
+  transition: all 0.2s;
 }
 
-button:active {
+button:focus {
   outline: none;
+  border: none;
 }
 
 /* Rules for sizing the icon. */

@@ -26,10 +26,6 @@ export class SidebarComponent {
     public sidebarService: SidebarService
   ) {}
 
-  changeActivePalette(palette: Palette) {
-    this.paletteService.changeActivePalette(palette);
-  }
-
   getListItemClass(palette: Palette) {
     if (this.paletteService.isActive(palette)) {
       return 'active';

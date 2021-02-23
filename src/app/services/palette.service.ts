@@ -16,4 +16,12 @@ export class PaletteService {
   changeActivePalette(palette: Palette) {
     this.activePalette$.next(palette);
   }
+
+  createPalette() {
+    const palette = new Palette('Pinkshade');
+
+    this.palettes.push(palette);
+
+    this.changeActivePalette(palette);
+  }
 }
