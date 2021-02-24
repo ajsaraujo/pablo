@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgxSmartModalService } from 'ngx-smart-modal';
 import { SidebarService } from 'src/app/services/sidebar.service';
 
 @Component({
@@ -7,7 +8,10 @@ import { SidebarService } from 'src/app/services/sidebar.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  constructor(private sidebarService: SidebarService) {}
+  constructor(
+    private sidebarService: SidebarService,
+    private ngxSmartModalService: NgxSmartModalService
+  ) {}
 
   toggleSidebar() {
     this.sidebarService.toggle();
@@ -19,5 +23,9 @@ export class HeaderComponent {
     }
 
     return 'menu';
+  }
+
+  openNewColorModal() {
+    this.ngxSmartModalService.getModal('newColorModal').open();
   }
 }

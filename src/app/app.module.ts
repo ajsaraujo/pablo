@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxSmartModalModule } from 'ngx-smart-modal';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -9,6 +10,7 @@ import { PaletteComponent } from './components/palette/palette.component';
 import { ColorComponent } from './components/color/color.component';
 import { CopyToClipboardDirective } from './directives/copy-to-clipboard.directive';
 import { ToastComponent } from './components/toast/toast.component';
+import { NewColorModalComponent } from './components/new-color-modal/new-color-modal.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +21,13 @@ import { ToastComponent } from './components/toast/toast.component';
     ColorComponent,
     CopyToClipboardDirective,
     ToastComponent,
+    NewColorModalComponent,
   ],
-  imports: [BrowserModule, BrowserAnimationsModule],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    NgxSmartModalModule.forRoot(),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
