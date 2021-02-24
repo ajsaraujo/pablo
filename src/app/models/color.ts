@@ -7,6 +7,10 @@ export class Color {
     }
   }
 
+  toString(): string {
+    return this.hexCode;
+  }
+
   generateRandomHex(): string {
     const chars = [
       'A',

@@ -1,2 +1,7 @@
 <div class="color-box" appCopyToClipboard [content]="color.hexCode" (copied)="showCopiedMessage()" [style]="getBackgroundColor()"></div>
-<span class="hex-code">{{ color.hexCode }}</span>
+<div class="bottom">
+  <span class="hex-code">{{ color.hexCode }}</span>
+  <button class="transparent" (click)="paletteService.removeColor(color)">
+    <i class="material-icons md-dark md-24 delete">delete</i>
+  </button>
+</div>

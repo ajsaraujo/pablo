@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Color } from '../models/color';
 import { Palette } from '../models/palette';
+import { ToastService } from './toast.service';
 
 @Injectable({
   providedIn: 'root',
@@ -8,6 +10,8 @@ import { Palette } from '../models/palette';
 export class PaletteService {
   palettes = [new Palette('Day Light'), new Palette('Night Blue')];
   activePalette$ = new BehaviorSubject<Palette>(this.palettes[0]);
+
+  constructor(private toastService: ToastService) {}
 
   isActive(palette: Palette): boolean {
     return this.activePalette$.value === palette;
@@ -23,5 +27,10 @@ export class PaletteService {
     this.palettes.push(palette);
 
     this.changeActivePalette(palette);
+  }
+
+  removeColor(color: Color) {
+    this.activePalette$.value.remove(color);
+    this.toastService.show(`${color} was removed from the palette.`);
   }
 }

@@ -9,6 +9,24 @@
   opacity: 0.9;
 }
 
+.bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
 .hex-code {
   color: #4b4a4a;
+  font-size: 19px;
+  line-height: 24px;
+  vertical-align: center;
+}
+
+.material-icons {
+  border-radius: 0.25em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.material-icons:hover {
+  color: #e93333;
 }
