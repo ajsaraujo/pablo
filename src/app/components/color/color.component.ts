@@ -21,7 +21,7 @@ export class ColorComponent {
   }
 
   showCopiedMessage() {
-    this.toastService.show(
+    this.toastService.showSuccessToast(
       `${this.color.hexCode} was copied to the clipboard.`
     );
   }

@@ -31,6 +31,6 @@ export class PaletteService {
 
   removeColor(color: Color) {
     this.activePalette$.value.remove(color);
-    this.toastService.show(`${color} was removed from the palette.`);
+    this.toastService.showDangerToast(`${color} was removed from the palette.`);
   }
 }

@@ -1,4 +1,4 @@
-<div *ngIf="message" class="container" [@inOut]>
+<div *ngIf="message" [class]="getClasses()" [@inOut]>
   <ng-container >
     <span>{{ message }}</span>
   </ng-container>

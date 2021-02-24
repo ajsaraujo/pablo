@@ -1,11 +1,16 @@
 .container {
   padding: 15px 25px;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
-  background-color: #dcfed6;
 }
 
-.container span {
+.green {
+  background-color: #dcfed6;
   color: #155b0b;
+}
+
+.red {
+  background-color: #f1dcde;
+  color: #801e1e;
 }
 
 .toast {

@@ -1,6 +1,7 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { ToastType } from 'src/app/models/toast-type';
 import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
@@ -22,15 +23,33 @@ import { ToastService } from 'src/app/services/toast.service';
 })
 export class ToastComponent implements OnDestroy {
   message = '';
-  private subscription: Subscription;
+  toastType = ToastType.success;
+
+  private subscriptions: Subscription[] = [];
 
   constructor(public toastService: ToastService) {
-    this.subscription = this.toastService.message$.subscribe((message) => {
-      this.message = message;
-    });
+    this.subscriptions.push(
+      this.toastService.message$.subscribe((message) => {
+        this.message = message;
+      })
+    );
+
+    this.subscriptions.push(
+      this.toastService.toastType$.subscribe((toastType) => {
+        this.toastType = toastType;
+      })
+    );
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
+  }
+
+  getClasses() {
+    if (this.toastType === ToastType.success) {
+      return 'green container';
+    }
+
+    return 'red container';
   }
 }
