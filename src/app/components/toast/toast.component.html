@@ -1,3 +1,5 @@
-<div *ngIf="toastService.isVisible" class="container" [@inOutAnimation]>
-  <span>{{ toastService.message }}</span>
+<div *ngIf="message" class="container">
+  <ng-container >
+    <span>{{ message }}</span>
+  </ng-container>
 </div>
