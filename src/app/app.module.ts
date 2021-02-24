@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 import { NgxSmartModalModule } from 'ngx-smart-modal';
 
 import { AppComponent } from './app.component';
@@ -26,6 +27,7 @@ import { NewColorModalComponent } from './components/new-color-modal/new-color-m
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     NgxSmartModalModule.forRoot(),
   ],
   providers: [],

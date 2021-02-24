@@ -1,0 +1,12 @@
+h1 {
+  margin-bottom: 15px;
+}
+
+.color-picker {
+  border: none;
+  height: 90px;
+  width: 100px;
+  cursor: pointer;
+  margin-right: 10px;
+  display: block;
+}
