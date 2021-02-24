@@ -8,13 +8,13 @@ export class Palette {
     }
 
     if (!colors) {
-      const colors = [];
+      const randomColors = [];
 
       for (let i = 0; i < 5; i++) {
-        colors.push(new Color());
+        randomColors.push(new Color());
       }
 
-      this.colors = colors;
+      this.colors = randomColors;
     }
   }
 

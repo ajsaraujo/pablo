@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class ToastService {
-  message$ = new BehaviorSubject<String>('');
+  message$ = new BehaviorSubject<string>('');
   private hideTimer: any;
 
   show(message: string) {

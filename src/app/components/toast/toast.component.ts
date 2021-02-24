@@ -21,7 +21,7 @@ import { ToastService } from 'src/app/services/toast.service';
   ],
 })
 export class ToastComponent implements OnDestroy {
-  message: String = '';
+  message = '';
   private subscription: Subscription;
 
   constructor(public toastService: ToastService) {
