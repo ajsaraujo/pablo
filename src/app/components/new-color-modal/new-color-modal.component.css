@@ -2,6 +2,26 @@ h1 {
   margin-bottom: 15px;
 }
 
+p {
+  max-width: 200px;
+}
+
+button {
+  margin-top: 15px;
+  background-color: #4caf50;
+  padding: 7px 15px;
+  border-radius: 0.3em;
+  transition: all 0.2s;
+  color: white;
+  outline: none;
+  border: none;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #62bd65;
+}
+
 .color-picker {
   border: none;
   height: 90px;
