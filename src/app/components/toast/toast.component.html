@@ -1,5 +1,5 @@
-<div *ngIf="message" [class]="getClasses()" [@inOut]>
+<div *ngIf="toast" [class]="getClasses()" [@inOut]>
   <ng-container >
-    <span>{{ message }}</span>
+    <span>{{ toast?.message }}</span>
   </ng-container>
 </div>

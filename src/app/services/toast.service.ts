@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Toast } from '../models/toast';
 import { ToastType } from '../models/toast-type';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ToastService {
-  message$ = new BehaviorSubject<string>('');
-  toastType$ = new BehaviorSubject<ToastType>(ToastType.success);
+  toast$ = new BehaviorSubject<Toast | undefined>(undefined);
 
   private hideTimer: any;
 
@@ -19,9 +19,8 @@ export class ToastService {
     this.show(message, ToastType.danger);
   }
 
-  private show(message: string, toastType: ToastType) {
-    this.message$.next(message);
-    this.toastType$.next(toastType);
+  private show(message: string, severity: ToastType) {
+    this.toast$.next({ message, severity });
     this.hideAfterAWhile();
   }
 
@@ -29,6 +28,6 @@ export class ToastService {
     clearTimeout(this.hideTimer);
 
     const A_WHILE = 2500;
-    this.hideTimer = setTimeout(() => this.message$.next(''), A_WHILE);
+    this.hideTimer = setTimeout(() => this.toast$.next(undefined), A_WHILE);
   }
 }

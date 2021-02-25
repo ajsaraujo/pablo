@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgxSmartModalService } from 'ngx-smart-modal';
-import { ModalType } from 'src/app/models/modal-type';
 import { SidebarService } from 'src/app/services/sidebar.service';
+import { ModalType } from 'src/app/models/modal-type';
 
 @Component({
   selector: 'app-header',
