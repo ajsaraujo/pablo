@@ -33,6 +33,11 @@ export class PaletteService {
     return this.activePalette$.value.name;
   }
 
+  addColor(color: Color) {
+    this.activePalette$.value.add(color);
+    this.toastService.showSuccessToast(`${color} was added to the palette.`);
+  }
+
   removeColor(color: Color) {
     this.activePalette$.value.remove(color);
     this.toastService.showDangerToast(`${color} was removed from the palette.`);

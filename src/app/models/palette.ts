@@ -7,6 +7,10 @@ export class Palette {
     public colors: Color[] = generateRandomColors()
   ) {}
 
+  add(color: Color) {
+    this.colors = [...this.colors, color];
+  }
+
   remove(color: Color) {
     const index = this.colors.indexOf(color);
 

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgxSmartModalService } from 'ngx-smart-modal';
+import { ModalType } from 'src/app/models/modal-type';
 import { SidebarService } from 'src/app/services/sidebar.service';
 
 @Component({
@@ -26,6 +27,6 @@ export class HeaderComponent {
   }
 
   openNewColorModal() {
-    this.ngxSmartModalService.getModal('newColorModal').open();
+    this.ngxSmartModalService.getModal(ModalType.newColorModal).open();
   }
 }
