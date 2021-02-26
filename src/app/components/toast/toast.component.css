@@ -18,3 +18,15 @@
   bottom: 20px;
   right: 20px;
 }
+
+.undo-action {
+  margin-left: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #465256;
+  transition: all 0.2s;
+}
+
+.undo-action:hover {
+  color: black;
+}

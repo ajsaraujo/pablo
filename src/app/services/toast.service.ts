@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { Toast } from '../models/toast';
 import { ToastType } from '../models/toast-type';
 
@@ -9,18 +9,27 @@ import { ToastType } from '../models/toast-type';
 export class ToastService {
   toast$ = new BehaviorSubject<Toast | undefined>(undefined);
 
+  private undoSubject = new Subject();
   private hideTimer: any;
 
+  get undo() {
+    return this.undoSubject.asObservable();
+  }
+
   showSuccessToast(message: string) {
-    this.show(message, ToastType.success);
+    this.show(message, ToastType.success, false);
   }
 
   showDangerToast(message: string) {
-    this.show(message, ToastType.danger);
+    this.show(message, ToastType.danger, true);
   }
 
-  private show(message: string, severity: ToastType) {
-    this.toast$.next({ message, severity });
+  fireUndoEvent() {
+    this.undoSubject.next();
+  }
+
+  private show(message: string, severity: ToastType, undoAction: boolean) {
+    this.toast$.next({ message, severity, undoAction });
     this.hideAfterAWhile();
   }
 
@@ -28,6 +37,8 @@ export class ToastService {
     clearTimeout(this.hideTimer);
 
     const A_WHILE = 2500;
-    this.hideTimer = setTimeout(() => this.toast$.next(undefined), A_WHILE);
+    this.hideTimer = setTimeout(() => {
+      this.toast$.next(undefined);
+    }, A_WHILE);
   }
 }

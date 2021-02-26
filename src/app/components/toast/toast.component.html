@@ -1,5 +1,6 @@
 <div *ngIf="toast" [class]="getClasses()" [@inOut]>
-  <ng-container >
-    <span>{{ toast?.message }}</span>
+  <span>{{ toast?.message }}</span>
+  <ng-container *ngIf="toast?.undoAction">
+    <span (click)="toastService.fireUndoEvent()" class="undo-action">UNDO</span>
   </ng-container>
 </div>

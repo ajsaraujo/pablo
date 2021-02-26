@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subscription } from 'rxjs';
 import { Color } from '../models/color';
 import { Palette } from '../models/palette';
 import { ToastService } from './toast.service';
@@ -10,6 +10,7 @@ import { ToastService } from './toast.service';
 export class PaletteService {
   palettes = [new Palette('Day Light'), new Palette('Night Blue')];
   activePalette$ = new BehaviorSubject<Palette>(this.palettes[0]);
+  undoSubscription!: Subscription;
 
   constructor(private toastService: ToastService) {}
 
@@ -41,5 +42,10 @@ export class PaletteService {
   removeColor(color: Color) {
     this.activePalette$.value.remove(color);
     this.toastService.showDangerToast(`${color} was removed from the palette.`);
+
+    this.undoSubscription = this.toastService.undo.subscribe(() => {
+      this.addColor(color);
+      this.undoSubscription.unsubscribe();
+    });
   }
 }
