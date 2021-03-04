@@ -12,6 +12,7 @@ import { ColorComponent } from './components/color/color.component';
 import { CopyToClipboardDirective } from './directives/copy-to-clipboard.directive';
 import { ToastComponent } from './components/toast/toast.component';
 import { NewColorModalComponent } from './components/new-color-modal/new-color-modal.component';
+import { FocusListenerDirective } from './directives/focus-listener.directive';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { NewColorModalComponent } from './components/new-color-modal/new-color-m
     CopyToClipboardDirective,
     ToastComponent,
     NewColorModalComponent,
+    FocusListenerDirective,
   ],
   imports: [
     BrowserModule,

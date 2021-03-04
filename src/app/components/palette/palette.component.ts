@@ -10,11 +10,21 @@ import { PaletteService } from 'src/app/services/palette.service';
 export class PaletteComponent {
   palette: Palette;
 
+  private previousPaletteName = '';
+
   constructor(private paletteService: PaletteService) {
     this.palette = this.paletteService.activePalette$.value;
 
     this.paletteService.activePalette$.subscribe((palette) => {
       this.palette = palette;
     });
+  }
+
+  storeCurrentPaletteName() {
+    this.previousPaletteName = this.palette.name;
+  }
+
+  changePaletteName() {
+    console.log(`${this.previousPaletteName} -> ${this.palette.name}`);
   }
 }

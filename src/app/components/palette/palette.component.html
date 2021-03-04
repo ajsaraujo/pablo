@@ -1,4 +1,4 @@
-<input type="text" class="palette-name-editor" [(ngModel)]="palette.name">
+<input type="text" class="palette-name-editor" [(ngModel)]="palette.name" appFocusListener (focusIn)="storeCurrentPaletteName()" (focusOut)="changePaletteName()">
 <ul class="color-grid">
   <li *ngFor="let color of palette.colors">
     <app-color [color]="color"></app-color>
