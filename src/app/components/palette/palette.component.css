@@ -13,6 +13,7 @@ li {
 
 .palette-name-editor {
   border: none;
+  width: 100%;
   outline: none;
   font-size: 32px;
   font-weight: 600;
