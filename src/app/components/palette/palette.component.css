@@ -10,3 +10,11 @@ li {
   display: inline-block;
   margin-right: 1em;
 }
+
+.palette-name-editor {
+  border: none;
+  outline: none;
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
