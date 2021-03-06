@@ -48,3 +48,26 @@ button:hover {
   box-shadow: 1px 0 5px 0 rgb(155, 155, 155);
   display: inline-block;
 }
+
+.item-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.material-icons {
+  color: transparent;
+  margin-left: auto;
+}
+
+.item-container:hover .material-icons {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.item-container:hover .material-icons:hover {
+  color: #e93333;
+}
+
+.palette-name {
+  margin-right: 10px;
+}
