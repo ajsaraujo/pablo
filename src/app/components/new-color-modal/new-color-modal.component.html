@@ -1,8 +1,8 @@
 <ngx-smart-modal #newColorModal [identifier]="identifier">
   <h1>New Color</h1>
   <div style="display: flex;">
-    <input class="color-picker" type="color" [(ngModel)]="hexCode">
-    <p>{{ hexCode }} is going to be added to the {{ paletteService.getName() }} palette.</p>
+    <input class="color-picker" type="color" [(ngModel)]="color.hexCode">
+    <p>{{ color.hexCode }} is going to be added to the {{ paletteService.getName() }} palette.</p>
   </div>
   <button class="green-button" (click)="addColor(newColorModal)">Add</button>
 </ngx-smart-modal>

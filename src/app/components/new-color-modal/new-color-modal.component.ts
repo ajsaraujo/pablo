@@ -10,14 +10,14 @@ import { PaletteService } from 'src/app/services/palette.service';
   styleUrls: ['./new-color-modal.component.css'],
 })
 export class NewColorModalComponent {
-  hexCode = new Color().hexCode;
+  color = new Color();
   identifier = ModalType.newColorModal;
 
   constructor(public paletteService: PaletteService) {}
 
   addColor(modalRef: NgxSmartModalComponent) {
-    const selectedColor = new Color(this.hexCode);
-    this.paletteService.addColor(selectedColor);
+    this.paletteService.addColor(this.color);
+    this.color = new Color();
     modalRef.close();
   }
 }
