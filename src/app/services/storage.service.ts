@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Palette } from '../models/palette';
+import { LocalStorageWrapperService } from './local-storage-wrapper.service';
 
 const PALETTES_KEY = 'palettes';
 
@@ -9,7 +10,10 @@ const PALETTES_KEY = 'palettes';
 export class StorageService {
   private paletteNames: Set<string>;
 
-  constructor(private storage: Storage = window.localStorage) {
+  constructor(
+    @Inject(LocalStorageWrapperService)
+    private storage: Storage
+  ) {
     const savedPalettes: string | null = storage.getItem(PALETTES_KEY);
 
     if (savedPalettes) {
