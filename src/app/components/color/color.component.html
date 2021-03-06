@@ -1,6 +1,14 @@
-<div class="color-box" appCopyToClipboard [content]="color.hexCode" (copied)="showCopiedMessage()" [style]="getBackgroundColor()"></div>
+<div 
+  class="color-box" 
+  appCopyToClipboard [content]="color.hexCode" 
+  [style.background-color]="color.hexCode" 
+  (copied)="showCopiedMessage()"
+></div>
 <div class="bottom">
   <span class="hex-code">{{ color.hexCode }}</span>
+  <button class="transparent" (click)="openEditColorModal()">
+    <i class="material-icons md-dark md-24 edit">edit</i>
+  </button>
   <button class="transparent" (click)="paletteService.removeColor(color)">
     <i class="material-icons md-dark md-24 delete">delete</i>
   </button>

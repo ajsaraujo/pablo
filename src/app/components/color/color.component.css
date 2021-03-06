@@ -27,6 +27,10 @@
   transition: all 0.2s;
 }
 
-.material-icons:hover {
+.edit:hover {
+  color: #4caf50;
+}
+
+.delete:hover {
   color: #e93333;
 }

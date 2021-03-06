@@ -39,6 +39,13 @@ export class PaletteService {
     this.toastService.showSuccessToast(`${color} was added to the palette.`);
   }
 
+  editColor(originalColor: Color, newColor: Color) {
+    this.activePalette$.value.edit(originalColor, newColor);
+    this.toastService.showSuccessToast(
+      `${originalColor} changed to ${newColor}`
+    );
+  }
+
   removeColor(color: Color) {
     this.activePalette$.value.remove(color);
     this.toastService.showDangerToast(`${color} was removed from the palette.`);
