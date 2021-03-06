@@ -10,20 +10,12 @@ import { ModalType } from 'src/app/models/modal-type';
 })
 export class HeaderComponent {
   constructor(
-    private sidebarService: SidebarService,
+    public sidebarService: SidebarService,
     private ngxSmartModalService: NgxSmartModalService
   ) {}
 
   toggleSidebar() {
     this.sidebarService.toggle();
-  }
-
-  getSidebarIcon(): string {
-    if (this.sidebarService.isVisible) {
-      return 'menu_open';
-    }
-
-    return 'menu';
   }
 
   openNewColorModal() {

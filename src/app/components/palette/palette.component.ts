@@ -25,9 +25,6 @@ export class PaletteComponent {
   }
 
   changePaletteName() {
-    // This method doesn't do anything currently. The palette name is
-    // already being changed in memory. But in the future we will need it
-    // to persist the change through LocalStorage or another API.
-    console.log(`${this.previousPaletteName} -> ${this.palette.name}`);
+    this.paletteService.editPaletteName(this.previousPaletteName, this.palette);
   }
 }

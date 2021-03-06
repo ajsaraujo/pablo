@@ -2,17 +2,32 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { Color } from '../models/color';
 import { Palette } from '../models/palette';
+import { StorageService } from './storage.service';
 import { ToastService } from './toast.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PaletteService {
-  palettes = [new Palette('Day Light'), new Palette('Night Blue')];
-  activePalette$ = new BehaviorSubject<Palette>(this.palettes[0]);
+  palettes: Palette[];
+  activePalette$: BehaviorSubject<Palette>;
   undoSubscription!: Subscription;
 
-  constructor(private toastService: ToastService) {}
+  constructor(
+    private toastService: ToastService,
+    private storageService: StorageService
+  ) {
+    const savedPalettes = this.storageService.read();
+
+    if (savedPalettes.length > 0) {
+      this.palettes = savedPalettes;
+    } else {
+      this.palettes = [new Palette('Day Light'), new Palette('Night Blue')];
+      this.palettes.forEach((palette) => this.storageService.save(palette));
+    }
+
+    this.activePalette$ = new BehaviorSubject<Palette>(this.palettes[0]);
+  }
 
   isActive(palette: Palette): boolean {
     return this.activePalette$.value === palette;
@@ -26,8 +41,9 @@ export class PaletteService {
     const palette = new Palette();
 
     this.palettes.push(palette);
-
     this.changeActivePalette(palette);
+
+    this.storageService.save(palette);
   }
 
   getName(): string {
@@ -35,19 +51,40 @@ export class PaletteService {
   }
 
   addColor(color: Color) {
-    this.activePalette$.value.add(color);
+    const palette = this.activePalette$.value;
+
+    palette.add(color);
+    this.storageService.save(palette);
+
     this.toastService.showSuccessToast(`${color} was added to the palette.`);
   }
 
   editColor(originalColor: Color, newColor: Color) {
-    this.activePalette$.value.edit(originalColor, newColor);
+    const palette = this.activePalette$.value;
+
+    palette.edit(originalColor, newColor);
+    this.storageService.save(palette);
+
     this.toastService.showSuccessToast(
       `${originalColor} changed to ${newColor}`
     );
   }
 
+  editPaletteName(oldName: string, palette: Palette) {
+    this.storageService.remove(oldName);
+    this.storageService.save(palette);
+
+    this.toastService.showSuccessToast(
+      `${oldName} renamed to ${palette.name}.`
+    );
+  }
+
   removeColor(color: Color) {
-    this.activePalette$.value.remove(color);
+    const palette = this.activePalette$.value;
+
+    palette.remove(color);
+    this.storageService.save(palette);
+
     this.toastService.showDangerToast(`${color} was removed from the palette.`);
 
     this.undoSubscription = this.toastService.undo.subscribe(() => {

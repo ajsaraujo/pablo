@@ -1,7 +1,7 @@
 <div class="container">
   <div class="vertical-center">
     <button class="hamburguer-button" (click)="toggleSidebar()">
-      <span class="material-icons hamburguer md-light md-36">{{ getSidebarIcon() }}</span>
+      <span class="material-icons hamburguer md-light md-36">{{ sidebarService.isVisible ? 'menu_open' : 'menu' }}</span>
     </button>
   </div>
   <div class="vertical-center">
