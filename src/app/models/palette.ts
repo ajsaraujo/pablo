@@ -23,6 +23,31 @@ export class Palette {
       this.colors?.splice(index, 1);
     }
   }
+
+  toString() {}
+
+  fromString() {}
+
+  equals(palette: Palette): boolean {
+    if (this.name !== palette.name) {
+      return false;
+    }
+
+    if (this.colors.length !== palette.colors.length) {
+      return false;
+    }
+
+    for (let i = 0; i < this.colors.length; i++) {
+      const colorA = palette.colors[i];
+      const colorB = this.colors[i];
+
+      if (!colorA.equals(colorB)) {
+        return false;
+      }
+    }
+
+    return true;
+  }
 }
 
 const generateRandomColors = (): Color[] => {

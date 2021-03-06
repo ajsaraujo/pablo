@@ -7,6 +7,10 @@ export class Color {
     }
   }
 
+  equals(color: Color): boolean {
+    return this.hexCode === color.hexCode;
+  }
+
   toString(): string {
     return this.hexCode;
   }
