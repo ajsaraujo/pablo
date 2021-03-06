@@ -33,9 +33,9 @@ export class StorageService {
     this.storage.setItem(palette.name, palette.toString());
   }
 
-  remove(palette: Palette) {
-    this.paletteNames.delete(palette.name);
-    this.storage.removeItem(palette.name);
+  remove(name: string) {
+    this.paletteNames.delete(name);
+    this.storage.removeItem(name);
     this.savePaletteNames();
   }
 

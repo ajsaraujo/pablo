@@ -70,6 +70,15 @@ export class PaletteService {
     );
   }
 
+  editPaletteName(oldName: string, palette: Palette) {
+    this.storageService.remove(oldName);
+    this.storageService.save(palette);
+
+    this.toastService.showSuccessToast(
+      `${oldName} renamed to ${palette.name}.`
+    );
+  }
+
   removeColor(color: Color) {
     const palette = this.activePalette$.value;
 
