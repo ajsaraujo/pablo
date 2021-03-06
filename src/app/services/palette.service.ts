@@ -71,6 +71,10 @@ export class PaletteService {
   }
 
   editPaletteName(oldName: string, palette: Palette) {
+    if (palette.name === oldName) {
+      return;
+    }
+
     this.storageService.remove(oldName);
     this.storageService.save(palette);
 
