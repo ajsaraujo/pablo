@@ -52,3 +52,32 @@ button:focus {
   outline: none;
   border: none;
 }
+
+input[type="color"] {
+  border: none;
+  height: 90px;
+  width: 100px;
+  cursor: pointer;
+  margin-right: 10px;
+  display: block;
+}
+
+.green-button {
+  margin-top: 15px;
+  background-color: #4caf50;
+  padding: 7px 15px;
+  border-radius: 0.3em;
+  transition: all 0.2s;
+  color: white;
+  outline: none;
+  border: none;
+  font-size: 16px;
+}
+
+.green-button:hover {
+  background-color: #62bd65;
+}
+
+.secondary-text {
+  color: #717171;
+}

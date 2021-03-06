@@ -1,3 +1,14 @@
 <ngx-smart-modal #editColorModal [identifier]="identifier">
-    
+  <h1>Edit Color</h1>
+  <div class="container">
+    <input type="color" class="readonly" [value]="editColorModal.getData()" disabled>
+    <input type="color" [(ngModel)]="newColor.hexCode">
+  </div>
+  <p class="secondary-text">
+    Changing color
+    <strong [style.color]="editColorModal.getData()?.hexCode">{{ editColorModal.getData() }}</strong>
+    to
+    <strong [style.color]="newColor.hexCode">{{ newColor }}</strong>
+  </p>
+  <button class="green-button" (click)="edit(editColorModal.getData(), editColorModal)">Edit</button>
 </ngx-smart-modal>

@@ -1,0 +1,12 @@
+h1 {
+  margin-bottom: 5px;
+}
+
+.readonly {
+  cursor: initial;
+}
+
+.container {
+  display: flex;
+  margin-bottom: 5px;
+}

@@ -22,7 +22,7 @@ export class ColorComponent {
   openEditColorModal() {
     const modalRef = this.modalService.getModal(ModalType.editColorModal);
 
-    modalRef.setData(this.color);
+    modalRef.setData(this.color, true);
     modalRef.open();
   }
 

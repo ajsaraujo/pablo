@@ -11,6 +11,11 @@ export class Palette {
     this.colors = [...this.colors, color];
   }
 
+  edit(originalColor: Color, newColor: Color) {
+    const index = this.colors.indexOf(originalColor);
+    this.colors.splice(index, 1, newColor);
+  }
+
   remove(color: Color) {
     const index = this.colors.indexOf(color);
 
