@@ -7,6 +7,24 @@ export class Palette {
     public colors: Color[] = generateRandomColors()
   ) {}
 
+  static fromString(stringified: string): Palette {
+    const { name, colors } = JSON.parse(stringified);
+
+    return new Palette(
+      name,
+      colors.map((hexCode: string) => new Color(hexCode))
+    );
+  }
+
+  toString() {
+    const colors = this.colors.map((color) => color.toString());
+
+    return JSON.stringify({
+      name: this.name,
+      colors,
+    });
+  }
+
   add(color: Color) {
     this.colors = [...this.colors, color];
   }
@@ -23,10 +41,6 @@ export class Palette {
       this.colors?.splice(index, 1);
     }
   }
-
-  toString() {}
-
-  fromString() {}
 
   equals(palette: Palette): boolean {
     if (this.name !== palette.name) {
