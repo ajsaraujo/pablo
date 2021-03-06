@@ -45,7 +45,8 @@ describe('StorageService', () => {
     const palette = new Palette();
 
     storageService.save(palette);
+    const [readPalette] = storageService.read();
 
-    expect(storageService.read()).toContain(palette);
+    expect(palette.equals(readPalette)).toBe(true);
   });
 });

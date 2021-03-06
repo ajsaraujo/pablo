@@ -12,7 +12,7 @@ export class Palette {
 
     return new Palette(
       name,
-      colors.map((hexCode: string) => new Color(hexCode))
+      colors.map((color: string) => Color.fromString(color))
     );
   }
 
