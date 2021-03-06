@@ -31,10 +31,11 @@ class MockStorage implements Storage {
 
 describe('StorageService', () => {
   let storageService: StorageService;
+  let mockStorage: MockStorage;
 
   beforeEach(() => {
-    const storage = new MockStorage();
-    storageService = new StorageService(storage);
+    mockStorage = new MockStorage();
+    storageService = new StorageService(mockStorage);
   });
 
   it('should return no palettes by default', () => {
@@ -45,8 +46,23 @@ describe('StorageService', () => {
     const palette = new Palette();
 
     storageService.save(palette);
+
+    // Emulates the palettes being saved in one session
+    // and read in another one.
+    storageService = new StorageService(mockStorage);
     const [readPalette] = storageService.read();
 
     expect(palette.equals(readPalette)).toBe(true);
+  });
+
+  it('should correctly remove a palette', () => {
+    const palette = new Palette();
+
+    storageService.save(palette);
+    storageService.remove(palette);
+
+    const [readPalette] = storageService.read();
+
+    expect(readPalette).toBeUndefined();
   });
 });

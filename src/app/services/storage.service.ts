@@ -29,7 +29,11 @@ export class StorageService {
     this.storage.setItem(palette.name, palette.toString());
   }
 
-  remove(palette: Palette) {}
+  remove(palette: Palette) {
+    this.paletteNames.delete(palette.name);
+    this.storage.removeItem(palette.name);
+    this.savePaletteNames();
+  }
 
   read(): Palette[] {
     const palettes: Palette[] = [];
