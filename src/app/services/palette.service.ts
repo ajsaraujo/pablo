@@ -100,11 +100,11 @@ export class PaletteService {
     palette.remove(color);
     this.storageService.save(palette);
 
-    this.toastService.showDangerToast(`${color} was removed from the palette.`);
-
-    this.undoSubscription = this.toastService.undo.subscribe(() => {
-      this.addColor(color);
-      this.undoSubscription.unsubscribe();
-    });
+    this.toastService.showDangerToast(
+      `${color} was removed from the palette.`,
+      () => {
+        this.addColor(color);
+      }
+    );
   }
 }
