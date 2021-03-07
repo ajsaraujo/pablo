@@ -91,7 +91,10 @@ export class PaletteService {
 
     this.activePalette$.next(this.palettes[0]);
 
-    this.toastService.showDangerToast(`${palette.name} was deleted.`);
+    this.toastService.showDangerToast(`${palette.name} was deleted.`, () => {
+      this.palettes.splice(index, 0, palette);
+      this.storageService.save(palette);
+    });
   }
 
   removeColor(color: Color) {
