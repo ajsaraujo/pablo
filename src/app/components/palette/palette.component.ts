@@ -12,7 +12,7 @@ export class PaletteComponent {
 
   private previousPaletteName = '';
 
-  constructor(private paletteService: PaletteService) {
+  constructor(public paletteService: PaletteService) {
     this.palette = this.paletteService.activePalette$.value;
 
     this.paletteService.activePalette$.subscribe((palette) => {

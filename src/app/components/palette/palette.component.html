@@ -1,14 +1,24 @@
 <app-edit-color-modal></app-edit-color-modal>
-<input 
+<ng-container *ngIf="palette">
+  <input 
   type="text"
   class="palette-name-editor"
   spellcheck="false"
   [(ngModel)]="palette.name"
   appFocusListener (focusIn)="storeCurrentPaletteName()"
   (focusOut)="changePaletteName()"
->
-<ul class="color-grid">
-  <li *ngFor="let color of palette.colors">
-    <app-color [color]="color"></app-color>
-  </li>
-</ul>
+  >
+  <ul class="color-grid">
+    <li *ngFor="let color of palette.colors">
+      <app-color [color]="color"></app-color>
+    </li>
+  </ul>
+</ng-container>
+<ng-container *ngIf="!palette">
+  <h1>No palettes!</h1>
+  <p>You have no palettes right now. Why don't you 
+    <a class="transparent" (click)="paletteService.createPalette()">
+      <span class="create-palette-hyperlink">create one?</span>
+    </a>
+  </p>
+</ng-container>

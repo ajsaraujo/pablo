@@ -44,10 +44,12 @@ export class PaletteService {
     this.changeActivePalette(palette);
 
     this.storageService.save(palette);
+
+    this.toastService.showSuccessToast(`${palette.name} was created.`);
   }
 
   getName(): string {
-    return this.activePalette$.value.name;
+    return this.activePalette$.value?.name;
   }
 
   addColor(color: Color) {
@@ -94,6 +96,7 @@ export class PaletteService {
     this.toastService.showDangerToast(`${palette.name} was deleted.`, () => {
       this.palettes.splice(index, 0, palette);
       this.storageService.save(palette);
+      this.activePalette$.next(this.palettes[index]);
     });
   }
 
