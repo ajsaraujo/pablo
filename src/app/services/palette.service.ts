@@ -83,6 +83,17 @@ export class PaletteService {
     );
   }
 
+  deletePalette(palette: Palette) {
+    const index = this.palettes.indexOf(palette);
+
+    this.palettes.splice(index, 1);
+    this.storageService.remove(palette.name);
+
+    this.activePalette$.next(this.palettes[0]);
+
+    this.toastService.showDangerToast(`${palette.name} was deleted.`);
+  }
+
   removeColor(color: Color) {
     const palette = this.activePalette$.value;
 

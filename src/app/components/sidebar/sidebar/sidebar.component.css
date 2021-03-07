@@ -20,7 +20,7 @@ li:hover {
   color: #4caf50;
 }
 
-button {
+.create-palette {
   margin-top: 10px;
   border: none;
   color: #212121;
@@ -29,7 +29,7 @@ button {
   padding: 4px 8px;
 }
 
-button:hover {
+.create-palette:hover {
   background-color: #4caf50;
   color: white;
 }

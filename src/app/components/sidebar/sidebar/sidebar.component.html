@@ -6,9 +6,11 @@
         <span class="palette-name">
           {{ palette.name }}
         </span>
-        <i class="material-icons md-18">delete</i>
+        <button class="transparent" (click)="paletteService.deletePalette(palette)">
+          <i class="material-icons md-18">delete</i>
+        </button>
       </div>
     </li>
   </ul>
-  <button (click)="paletteService.createPalette()">New Palette</button>
+  <button class="create-palette" (click)="paletteService.createPalette()">New Palette</button>
 </div>
