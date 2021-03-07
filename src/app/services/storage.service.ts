@@ -8,6 +8,7 @@ const PALETTES_KEY = 'palettes';
   providedIn: 'root',
 })
 export class StorageService {
+  public hasStorage: boolean;
   private paletteNames: Set<string>;
 
   constructor(
@@ -22,6 +23,10 @@ export class StorageService {
     } else {
       this.paletteNames = new Set();
     }
+
+    // False if user has never used Pablo on this browser.
+    this.hasStorage = Boolean(storage.getItem('hasStorage'));
+    storage.setItem('hasStorage', 'true');
   }
 
   save(palette: Palette) {

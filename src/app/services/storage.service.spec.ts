@@ -59,7 +59,7 @@ describe('StorageService', () => {
     const palette = new Palette();
 
     storageService.save(palette);
-    storageService.remove(palette);
+    storageService.remove(palette.name);
 
     const [readPalette] = storageService.read();
 

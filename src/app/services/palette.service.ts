@@ -17,10 +17,8 @@ export class PaletteService {
     private toastService: ToastService,
     private storageService: StorageService
   ) {
-    const savedPalettes = this.storageService.read();
-
-    if (savedPalettes.length > 0) {
-      this.palettes = savedPalettes;
+    if (storageService.hasStorage) {
+      this.palettes = this.storageService.read();
     } else {
       this.palettes = [new Palette('Day Light'), new Palette('Night Blue')];
       this.palettes.forEach((palette) => this.storageService.save(palette));
