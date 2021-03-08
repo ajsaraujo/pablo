@@ -47,6 +47,7 @@ li:hover {
   -webkit-box-shadow: 1px 0 5px 0 rgb(155, 155, 155);
   box-shadow: 1px 0 5px 0 rgb(155, 155, 155);
   display: inline-block;
+  height: 100%;
 }
 
 .item-container {

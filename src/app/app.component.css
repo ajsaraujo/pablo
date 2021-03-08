@@ -12,3 +12,13 @@ main {
   bottom: 20px;
   right: 20px;
 }
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-flow: column;
+}
+
+main {
+  height: 100%;
+}
