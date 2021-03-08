@@ -1,27 +1,38 @@
 # Pablo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.4.
+Pablo is a color palette manager. You can use it to manage multiple palettes in one place, no matter what you're working on. With Pablo, you can optimize your workflow by having a view of all the colors your working with and easily copying them to your clipboard.
 
-## Development server
+![image-20210308195130210](docs/app-screenshot.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Installing and Running
 
-## Code scaffolding
+All you'll need is [Git](https://git-scm.com/), [Node](https://nodejs.org/en/) and [Angular](https://angular.io/cli).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
+# Clone the project
+git clone https://github.com/ajsaraujo/pablo.git
 
-## Build
+# Navigate to project folder
+cd pablo
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+# Install dependencies
+npm i
 
-## Running unit tests
+# Serve the website
+ng serve
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Pablo will then be available at http://localhost:4200.
 
-## Running end-to-end tests
+## Contributing
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Pablo is meant to be a simple project that anyone can contribute to and learn something by doing it. If you want to contribute to the project, just follow these steps:
 
-## Further help
+1. Comment on the issue you want to work on. If you have an idea that isn't on an issue yet, create the issue.
+2. Fork the repository.
+3. Clone your fork.
+4. Make your changes locally.
+5. Push them to your fork.
+6. Create a Pull Request from your fork to the repository's `develop` branch.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+We'll then review it as soon as possible. If you're stuck with something, send an email to allanjuansil@gmail.com and we'll try our best. Keep in mind that refactorings are more than welcome!
