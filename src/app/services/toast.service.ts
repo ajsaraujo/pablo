@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject, Subject, Subscription } from 'rxjs';
 import { Toast } from '../models/toast';
 import { ToastType } from '../models/toast-type';
 
@@ -12,16 +12,18 @@ export class ToastService {
   private undoSubject = new Subject();
   private hideTimer: any;
 
-  get undo() {
-    return this.undoSubject.asObservable();
-  }
-
   showSuccessToast(message: string) {
     this.show(message, ToastType.success, false);
   }
 
-  showDangerToast(message: string) {
+  showDangerToast(message: string, handleUndo?: () => any) {
     this.show(message, ToastType.danger, true);
+
+    if (handleUndo) {
+      this.undoSubject.asObservable().subscribe(() => {
+        handleUndo();
+      });
+    }
   }
 
   fireUndoEvent() {
@@ -30,6 +32,7 @@ export class ToastService {
 
   private show(message: string, severity: ToastType, undoAction: boolean) {
     this.toast$.next({ message, severity, undoAction });
+    this.undoSubject = new Subject();
     this.hideAfterAWhile();
   }
 

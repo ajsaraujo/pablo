@@ -2,8 +2,15 @@
   <h1>My Palettes</h1>
   <ul>
     <li *ngFor="let palette of paletteService.palettes" [class]="getListItemClass(palette)" (click)="paletteService.changeActivePalette(palette)">
-      {{ palette.name }}
+      <div class="item-container">
+        <span class="palette-name">
+          {{ palette.name }}
+        </span>
+        <button class="transparent" (click)="paletteService.deletePalette(palette)">
+          <i class="material-icons md-18">delete</i>
+        </button>
+      </div>
     </li>
   </ul>
-  <button (click)="paletteService.createPalette()">New Palette</button>
+  <button class="create-palette" (click)="paletteService.createPalette()">New Palette</button>
 </div>

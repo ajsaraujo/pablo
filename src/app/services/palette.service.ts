@@ -17,10 +17,8 @@ export class PaletteService {
     private toastService: ToastService,
     private storageService: StorageService
   ) {
-    const savedPalettes = this.storageService.read();
-
-    if (savedPalettes.length > 0) {
-      this.palettes = savedPalettes;
+    if (storageService.hasStorage) {
+      this.palettes = this.storageService.read();
     } else {
       this.palettes = [new Palette('Day Light'), new Palette('Night Blue')];
       this.palettes.forEach((palette) => this.storageService.save(palette));
@@ -44,10 +42,12 @@ export class PaletteService {
     this.changeActivePalette(palette);
 
     this.storageService.save(palette);
+
+    this.toastService.showSuccessToast(`${palette.name} was created.`);
   }
 
   getName(): string {
-    return this.activePalette$.value.name;
+    return this.activePalette$.value?.name;
   }
 
   addColor(color: Color) {
@@ -71,6 +71,10 @@ export class PaletteService {
   }
 
   editPaletteName(oldName: string, palette: Palette) {
+    if (palette.name === oldName) {
+      return;
+    }
+
     this.storageService.remove(oldName);
     this.storageService.save(palette);
 
@@ -79,17 +83,32 @@ export class PaletteService {
     );
   }
 
+  deletePalette(palette: Palette) {
+    const index = this.palettes.indexOf(palette);
+
+    this.palettes.splice(index, 1);
+    this.storageService.remove(palette.name);
+
+    this.activePalette$.next(this.palettes[0]);
+
+    this.toastService.showDangerToast(`${palette.name} was deleted.`, () => {
+      this.palettes.splice(index, 0, palette);
+      this.storageService.save(palette);
+      this.activePalette$.next(this.palettes[index]);
+    });
+  }
+
   removeColor(color: Color) {
     const palette = this.activePalette$.value;
 
     palette.remove(color);
     this.storageService.save(palette);
 
-    this.toastService.showDangerToast(`${color} was removed from the palette.`);
-
-    this.undoSubscription = this.toastService.undo.subscribe(() => {
-      this.addColor(color);
-      this.undoSubscription.unsubscribe();
-    });
+    this.toastService.showDangerToast(
+      `${color} was removed from the palette.`,
+      () => {
+        this.addColor(color);
+      }
+    );
   }
 }

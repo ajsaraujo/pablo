@@ -20,7 +20,7 @@ li:hover {
   color: #4caf50;
 }
 
-button {
+.create-palette {
   margin-top: 10px;
   border: none;
   color: #212121;
@@ -29,7 +29,7 @@ button {
   padding: 4px 8px;
 }
 
-button:hover {
+.create-palette:hover {
   background-color: #4caf50;
   color: white;
 }
@@ -47,4 +47,27 @@ button:hover {
   -webkit-box-shadow: 1px 0 5px 0 rgb(155, 155, 155);
   box-shadow: 1px 0 5px 0 rgb(155, 155, 155);
   display: inline-block;
+}
+
+.item-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.material-icons {
+  color: transparent;
+  margin-left: auto;
+}
+
+.item-container:hover .material-icons {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.item-container:hover .material-icons:hover {
+  color: #e93333;
+}
+
+.palette-name {
+  margin-right: 10px;
 }

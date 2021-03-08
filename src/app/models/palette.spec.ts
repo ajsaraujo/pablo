@@ -1,4 +1,3 @@
-import { parse } from 'node:path';
 import { Color } from './color';
 import { Palette } from './palette';
 
