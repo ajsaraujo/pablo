@@ -19,3 +19,12 @@ li {
   font-weight: 600;
   margin-bottom: 15px;
 }
+
+.create-palette-hyperlink {
+  color: #4caf50;
+  cursor: pointer;
+}
+
+.create-palette-hyperlink:hover {
+  text-decoration: underline;
+}
