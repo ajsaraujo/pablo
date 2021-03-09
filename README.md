@@ -36,3 +36,7 @@ Pablo is meant to be a simple project that anyone can contribute to and learn so
 6. Create a Pull Request from your fork to the repository's `develop` branch.
 
 We'll then review it as soon as possible. If you're stuck with something, send an email to allanjuansil@gmail.com and we'll try our best. Keep in mind that refactorings are more than welcome!
+
+## Attribution
+
+App Icon designed by [OpenMoji](https://openmoji.org/) – the open-source emoji and icon project. License: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/#)
