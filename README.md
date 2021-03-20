@@ -24,6 +24,8 @@ ng serve
 
 Pablo will then be available at http://localhost:4200.
 
+If you would like to view the current version of Pablo, you can do so [here](https://ajsaraujo.github.io/pablo/index.html).
+
 ## Contributing
 
 Pablo is meant to be a simple project that anyone can contribute to and learn something by doing it. If you want to contribute to the project, just follow these steps:
@@ -36,3 +38,5 @@ Pablo is meant to be a simple project that anyone can contribute to and learn so
 6. Create a Pull Request from your fork to the repository's `develop` branch.
 
 We'll then review it as soon as possible. If you're stuck with something, send an email to allanjuansil@gmail.com and we'll try our best. Keep in mind that refactorings are more than welcome!
+
+If you're new to contributing, you might find this [first contributions guide](https://github.com/firstcontributions/first-contributions) useful.
