@@ -39,4 +39,8 @@ Pablo is meant to be a simple project that anyone can contribute to and learn so
 
 We'll then review it as soon as possible. If you're stuck with something, send an email to allanjuansil@gmail.com and we'll try our best. Keep in mind that refactorings are more than welcome!
 
+
 If you're new to contributing, you might find this [first contributions guide](https://github.com/firstcontributions/first-contributions) useful.
+## Attribution
+
+App Icon designed by [OpenMoji](https://openmoji.org/) – the open-source emoji and icon project. License: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/#)
