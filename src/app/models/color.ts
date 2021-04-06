@@ -1,10 +1,19 @@
 import { RandomUtils } from '../utils/random.utils';
 
 export class Color {
-  constructor(public hexCode: string = '') {
-    if (!this.hexCode) {
-      this.hexCode = this.generateRandomHex();
+  //renamed to privateHexCode so it doesn't conflict with the setter
+  constructor(private privateHexCode: string = '') {
+    if (!this.privateHexCode) {
+      this.privateHexCode = this.generateRandomHex();
     }
+  }
+
+  //used to ensure every hex code is uppercase
+  set hexCode(color: string){
+    this.privateHexCode = color.toUpperCase();
+  }
+  get hexCode(){
+    return this.privateHexCode;
   }
 
   static fromString(hexCode: string): Color {

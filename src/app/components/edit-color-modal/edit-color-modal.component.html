@@ -2,7 +2,7 @@
   <h1>Edit Color</h1>
   <div class="container">
     <input type="color" class="readonly" [value]="editColorModal.getData()" disabled>
-    <input type="color" [(ngModel)]="newColor.hexCode" (ngModelChange)="newColor.hexCode = $event.toUpperCase()">
+    <input type="color" [(ngModel)]="newColor.hexCode">
   </div>
   <p class="secondary-text">
     Changing color
