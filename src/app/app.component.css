@@ -19,6 +19,18 @@ main {
   flex-flow: column;
 }
 
+@media only screen and (max-device-width: 1024px){
+    .sidebar {
+      max-width: 50%;
+    }
+}
+
+@media only screen and (min-device-width: 1025px) {
+    .sidebar {
+      max-width: 15%;
+    }
+}
+
 main {
   height: 100%;
 }
