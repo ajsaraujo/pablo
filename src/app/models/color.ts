@@ -1,10 +1,19 @@
+/* eslint-disable no-underscore-dangle */
 import { RandomUtils } from '../utils/random.utils';
 
 export class Color {
-  constructor(public hexCode: string = '') {
-    if (!this.hexCode) {
-      this.hexCode = this.generateRandomHex();
+  constructor(private _hexCode: string = '') {
+    if (!this._hexCode) {
+      this._hexCode = this.generateRandomHex();
     }
+  }
+
+  set hexCode(color: string){
+    this._hexCode = color.toUpperCase();
+  }
+
+  get hexCode(){
+    return this._hexCode;
   }
 
   static fromString(hexCode: string): Color {
