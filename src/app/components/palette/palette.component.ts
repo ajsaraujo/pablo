@@ -29,6 +29,11 @@ export class PaletteComponent {
 
   changePaletteName() {
     const name = this.palette.name;
+    if(name.length===0){
+      this.toastService.showDangerToast('Name cannot be empty');
+      this.palette.name=this.previousPaletteName;
+      return;
+    }
     if(localStorage.getItem(name)!==null){
       this.toastService.showDangerToast(`${name} already exist`);
       this.palette.name=this.previousPaletteName;
