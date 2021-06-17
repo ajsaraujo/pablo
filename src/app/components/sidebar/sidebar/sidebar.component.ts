@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { PaletteService } from 'src/app/services/palette.service';
 import { SidebarService } from 'src/app/services/sidebar.service';
@@ -33,4 +33,5 @@ export class SidebarComponent {
 
     return '';
   }
+
 }

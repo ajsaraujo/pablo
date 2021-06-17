@@ -17,8 +17,7 @@ export class ToastService {
   }
 
   showDangerToast(message: string, handleUndo?: () => any) {
-    this.show(message, ToastType.danger, true);
-
+    this.show(message, ToastType.danger, handleUndo?true: false);
     if (handleUndo) {
       this.undoSubject.asObservable().subscribe(() => {
         handleUndo();
