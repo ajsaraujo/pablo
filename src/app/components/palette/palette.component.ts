@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Palette } from 'src/app/models/palette';
 import { PaletteService } from 'src/app/services/palette.service';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-palette',
@@ -12,7 +13,9 @@ export class PaletteComponent {
 
   private previousPaletteName = '';
 
-  constructor(public paletteService: PaletteService) {
+  constructor(
+    private toastService: ToastService,
+    public paletteService: PaletteService) {
     this.palette = this.paletteService.activePalette$.value;
 
     this.paletteService.activePalette$.subscribe((palette) => {
@@ -25,6 +28,18 @@ export class PaletteComponent {
   }
 
   changePaletteName() {
-    this.paletteService.editPaletteName(this.previousPaletteName, this.palette);
+    const name = this.palette.name;
+    if(name.length===0){
+      this.toastService.showDangerToast('Name cannot be empty');
+      this.palette.name=this.previousPaletteName;
+      return;
+    }
+    if(localStorage.getItem(name)!==null){
+      this.toastService.showDangerToast(`${name} already exist`);
+      this.palette.name=this.previousPaletteName;
+    }
+    else{
+      this.paletteService.editPaletteName(this.previousPaletteName, this.palette);
+    }
   }
 }
