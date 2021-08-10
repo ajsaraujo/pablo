@@ -34,7 +34,7 @@ export class PaletteComponent {
         this.newName = this.previousPaletteName;
       });
       return;
-    } 
+    }
     this.palette.name = newName;
     this.paletteService.editPaletteName(this.previousPaletteName, this.palette);
   }
