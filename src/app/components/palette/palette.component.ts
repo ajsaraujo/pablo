@@ -30,7 +30,7 @@ export class PaletteComponent {
       return;
     }
     if (this.paletteService.palettes.some(x => x.name === newName) || newName.length === 0) {
-      this.toastService.showDangerToast(newName.length === 0 
+      this.toastService.showDangerToast(newName.length === 0
         ?
         'Please enter a name for the palette'
         :
