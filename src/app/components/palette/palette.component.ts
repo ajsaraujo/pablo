@@ -29,8 +29,12 @@ export class PaletteComponent {
     if (newName === this.previousPaletteName) {
       return;
     }
-    if (this.paletteService.palettes.some(x => x.name === newName)) {
-      this.toastService.showDangerToast(newName + ' already exists!', () => {
+    if (this.paletteService.palettes.some(x => x.name === newName) || newName.length === 0) {
+      this.toastService.showDangerToast(newName.length === 0 
+        ?
+        'Please enter a name for the palette'
+        :
+        newName + ' already exists!', () => {
         this.newName = this.previousPaletteName;
       });
       return;
