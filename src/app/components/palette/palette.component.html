@@ -1,12 +1,14 @@
 <app-edit-color-modal></app-edit-color-modal>
 <ng-container *ngIf="palette">
-  <input 
+  <input
+  #paletteName
   type="text"
   class="palette-name-editor"
   spellcheck="false"
-  [(ngModel)]="palette.name"
+  [(ngModel)]="newName"
   appFocusListener (focusIn)="storeCurrentPaletteName()"
-  (focusOut)="changePaletteName()"
+  (focusOut)="changePaletteName(paletteName.value)"
+  (keyUp.enter)="changePaletteName(paletteName.value)"
   >
   <ul class="color-grid">
     <li *ngFor="let color of palette.colors">
