@@ -8,7 +8,7 @@
     Changing color
     <strong [style.color]="editColorModal.getData()?.hexCode">{{ editColorModal.getData() }}</strong>
     to
-    <strong [style.color]="newColor.hexCode">{{ newColor }}</strong>
+    <strong [style.color]="newColor.hexCode">{{ newColor.hexCode }}</strong>
   </p>
   <button class="green-button" (click)="edit(editColorModal.getData(), editColorModal)">Edit</button>
 </ngx-smart-modal>
