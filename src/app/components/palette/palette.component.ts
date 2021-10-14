@@ -15,11 +15,11 @@ import { SidebarService } from 'src/app/services/sidebar.service';
       })),
       transition( 'longer => shorter',[
         style({opacity:0}),
-        animate(800)
+        animate(200)
       ] ),
       transition( 'shorter => longer',[
         style({opacity:0}),
-        animate(1300)
+        animate('1ms 200ms')
       ] ),
     ]),
   ]
