@@ -1,6 +1,6 @@
 <app-edit-color-modal></app-edit-color-modal>
-<ng-container *ngIf="palette">
-  <input 
+<div *ngIf="palette" [@fade-in]="sidebarService.isVisible ? 'shorter' : 'longer'">
+  <input
   type="text"
   class="palette-name-editor"
   spellcheck="false"
@@ -13,7 +13,7 @@
       <app-color [color]="color"></app-color>
     </li>
   </ul>
-</ng-container>
+</div>
 <ng-container *ngIf="!palette">
   <h1>No palettes!</h1>
   <p>You have no palettes right now. Why don't you 
